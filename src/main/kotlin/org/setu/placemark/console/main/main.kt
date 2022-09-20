@@ -29,21 +29,24 @@ fun main(args: Array<String>){
 fun menu() : Int {
 
     var option : Int
-    var input: String? = null
+    var input : String? = null
 
     println("Main Menu")
     println(" 1. Add Placemark")
     println(" 2. Update Placemark")
     println(" 3. List All Placemarks")
-    println("-1. Exit")
+    println(" 4. Search Placemarks")
+    println(" 5. Import Saved Data")
+    println(" -1. Exit")
     println()
-    print("Enter an integer : ")
+    println(" Choose option from the list : ")
     input = readLine()!!
-    option = if (input.toIntOrNull() != null && !input.isEmpty())
+    option = if (input.toIntOrNull() !=null && !input.isEmpty())
         input.toInt()
     else
         -9
     return option
+
 }
 
 fun addPlacemark(){
