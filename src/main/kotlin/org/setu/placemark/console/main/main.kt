@@ -16,14 +16,21 @@ var placemarks = ArrayList<PlacemarkModel>()
 val url = "jdbc:mysql://localhost:3306/placemarkdb"
 val username = "root"
 val password = ""
-
+// cli colors
+val RED = "\u001B[31m"
+val GREEN = "\u001B[32m"
+val YELLOW = "\u001B[33m"
+val BLUE = "\u001B[34m"
+val PURPLE = "\u001B[35m"
+val CYAN = "\u001B[36m"
+val WHITE = "\u001B[37m"
 //connect to database
-val connection = DriverManager.getConnection(url, username, password)
-val statement = connection.createStatement()
-val resultSet = statement.executeQuery("SELECT * FROM placemarks")
+//val connection = DriverManager.getConnection(url, username, password)
+//val statement = connection.createStatement()
+//val resultSet = statement.executeQuery("SELECT * FROM placemarks")
 fun main(args: Array<String>){
     logger.info { "Launching Placemark Console App" }
-    println("Placemark Kotlin App Version 1.0")
+    println(GREEN + "Placemark Kotlin App Version 1.0")
     var input: Int
 
     do {
@@ -38,12 +45,12 @@ fun main(args: Array<String>){
             7 -> load()
             8 -> connectToDatabase()
             -1 -> println("Exiting...")
-            else -> println("Selection is not available, please choose another option from the list")
+            else -> println(RED + "Selection is not available, please choose another option from the list")
         }
         println()
     }
     while (input != -1)
-    logger.info {"Console is shutting down..."}
+    logger.info { RED + "Console is shutting down..."}
 
 
 }
@@ -59,9 +66,9 @@ fun menu() : Int {
     println(" 3. List All Placemarks")
     println(" 4. Search Placemarks")
     println(" 5. Import Saved Data")
-    println(" 6. Save Data")
-    println(" 7. Load Data")
-    println(" -1. Exit")
+    println(YELLOW + " 6. Save Data")
+    println(YELLOW + " 7. Load Data")
+    println(RED + " -1. Exit")
     println()
     println(" Choose option from the list : ")
     input = readLine()!!
